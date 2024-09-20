@@ -1,17 +1,18 @@
 {
-    "version": 8,
+    "version": 9,
     "configurePresets": [
         {
             "name": "common",
             "displayName": "crossplatform",
-            "description": "设置 $env{COMPILER_NAME} 生成器、版本和安装目录",
-            "generator": "$env{COMPILER_NAME}",
-            "architecture": "$env{COMPILER_ARCH}",
+            "description": "设置跨平台的生成器、版本和安装目录",
             "binaryDir": "${sourceDir}/out/build/${presetName}",
             "cacheVariables": {
+                "CMAKE_GENERATOR": "$env{COMPILER_NAME}",
+                "CMAKE_GENERATOR_PLATFORM": "$env{COMPILER_ARCH}",
                 "CMAKE_BUILD_TYPE": "$env{CONFIGURATION}",
                 "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
-                "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}"
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
+                "CMAKE_PREFIX_PATH": "$env{INSTALL_DIR}/lib/cmake}"
             }
         }
     ]

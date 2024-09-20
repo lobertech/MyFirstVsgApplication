@@ -70,3 +70,5 @@ DerivedData/
 build/
 local.properties
 
+out/
+CMakeUserPresets.json
